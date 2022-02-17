@@ -62,7 +62,6 @@ class _MyAppState extends State<MyApp> {
   getExif() async {
     String path = 'your image path';
     var exif = FlutterExif(path);
-    String exifData = await exif.getExif('');
-    print(exifData);
+    final exifData = await exif.getExif('');
   }
 }

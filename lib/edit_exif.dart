@@ -12,11 +12,11 @@ class FlutterExif {
     return version;
   }
 
-  Future<String> getExif([String key]) async {
+  Future<String?> getExif([String? key]) async {
     //android获取某个属性信息 如key：TAG_GPS_LONGITUDE_REF（具体查看exif2文档）
     //ios获取所有图片信息（可以不传key）
     var platform = await FlutterExif.platformVersion;
-    String value;
+    String? value;
     if (platform.contains('iOS')) {
       value = await _channel.invokeMethod<String>(
           'getExif', <String, dynamic>{'path': this.path, 'key': key});
